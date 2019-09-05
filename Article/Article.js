@@ -99,9 +99,35 @@ const data = [
     <span class='expandButton'></span>
   </div>
 
-  Hint: You will need to use createElement more than once here!
+  Hint: You will need to use createElement more than once here! */
 
-  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
+  function createcomponent({title,date,firstParagraph,secondParagraph,thirdParagraph}){
+    const div = document.createElement('div');
+    div.setAttribute('class','article');
+
+    const h2 = document.createElement('h2');
+    h2.textContent = title;
+
+    const p = document.createElement('p');
+    p.setAttribute('class','date');
+    p.textContent = date;
+
+    const p1 = document.createElement('p');
+    p1.textContent = firstParagraph;
+
+    const p2 = document.createElement('p');
+    p2.textContent = secondParagraph;
+
+    const p3 = document.createElement('p');
+    p3.textContent = thirdParagraph;
+
+    const span = document.createElement('span');
+    span.setAttribute('class','expandButton')
+    span.textContent = "toggle";
+    span.style.textalign = "center"
+  }
+
+  /* Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
 
   Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
 
