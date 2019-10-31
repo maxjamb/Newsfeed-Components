@@ -135,7 +135,7 @@ function createComponent({title, date, firstParagraph, secondParagraph, thirdPar
   const span = document.createElement('span');
   span.setAttribute('class','expandButton');
   span.textContent = 'toggle';
-  // span.style.textAlign = 'centre';
+  span.style.textAlign = 'centre';
 
   span.addEventListener('click', e => {
     article.classList.toggle('article-open')
