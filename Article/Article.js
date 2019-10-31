@@ -112,3 +112,58 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+
+function createComponent({title, date, firstParagraph, secondParagraph, thirdParagraph}){
+  const article = document.createElement('div');
+  article.classList.add('article');
+
+  const h2 = document.createElement('h2');
+  h2.textContent = title;
+
+  const pDate = document.createElement('p');
+  pDate.classList.add('date');
+  pDate.textContent = date;
+
+  const p1 = document.createElement('p');
+  p1.textContent = firstParagraph;
+  const p2 = document.createElement('p');
+  p2.textContent = secondParagraph;
+  const p3 = document.createElement('p');
+  p3.textContent = thirdParagraph;
+
+  const span = document.createElement('span');
+  span.setAttribute('class','expandButton');
+  span.textContent = 'toggle';
+  // span.style.textAlign = 'centre';
+
+  span.addEventListener('click', e => {
+    article.classList.toggle('article-open')
+  });
+
+  article.appendChild(h2);
+  article.appendChild(pDate);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(span);
+
+  return article;
+}
+
+const newArticle = ({
+  title: 'Lambda School Web Development Course',
+  date: 'Sep 9th, 2019',
+  firstParagraph: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nisi culpa repellat quo consectetur adipisci explicabo harum, nulla fuga quos voluptas expedita iusto neque ipsam maxime totam, reprehenderit architecto iure?`,
+  secondParagraph: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, vitae eius deleniti suscipit sequi libero, at cum laborum praesentium saepe maiores! Odio suscipit atque quidem itaque tempora cumque nulla beatae?`,
+  thirdParagraph: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum quasi explicabo voluptates perspiciatis voluptatem veritatis, quod at, ipsam optio illum, vel tenetur doloribus ipsa eos velit necessitatibus cupiditate porro. Incidunt.`
+});
+
+data.push(newArticle);
+const articles = data.map(createComponent);
+const articlesDiv = document.querySelector(".articles");
+const {appendChild} = articlesDiv;
+articles.forEach(article => {
+  articlesDiv.appendChild(article)
+});
+console.log(articlesDiv);
